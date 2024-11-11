@@ -21,3 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "TinyChatBox"
 include(":app")
+include(":ease-im-kit")
