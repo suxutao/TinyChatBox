@@ -1,9 +1,9 @@
 package com.example.tinychatbox.controller.activity;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.widget.RadioGroup;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
@@ -34,6 +34,7 @@ public class MainActivity extends FragmentActivity {
 
     private void initListener() {
         main_group.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @SuppressLint("NonConstantResourceId")
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 //切换列表
@@ -57,7 +58,7 @@ public class MainActivity extends FragmentActivity {
 
     private void switchFragment(Fragment fragment) {
         FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction().replace(R.id.main_group,fragment).commit();
+        fragmentManager.beginTransaction().replace(R.id.fl_main,fragment).commit();
     }
 
     private void initData() {
