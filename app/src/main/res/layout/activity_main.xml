@@ -1,33 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
+    android:orientation="vertical"
     tools:context=".controller.activity.MainActivity">
 
-    <com.google.android.material.appbar.AppBarLayout
+    <FrameLayout
+        android:id="@+id/fl_main"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fitsSystemWindows="true">
+        android:layout_height="0dp"
+        android:layout_weight="1">
 
-        <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize" />
+    </FrameLayout>
+    <RadioGroup
+        android:id="@+id/main_group"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+        <RadioButton
+            android:text="聊天"
+            android:id="@+id/main_chat"
+            android:textSize="20sp"
+            android:button="@null"
+            android:gravity="center"
+            android:background="@drawable/main_bottom_bg_selector"
+            android:textColor="@color/main_bottom_textcolor_selector"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"/>
+        <RadioButton
+            android:text="联系人"
+            android:id="@+id/main_contactor"
+            android:textSize="20sp"
+            android:button="@null"
+            android:gravity="center"
+            android:background="@drawable/main_bottom_bg_selector"
+            android:textColor="@color/main_bottom_textcolor_selector"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"/>
+        <RadioButton
+            android:text="设置"
+            android:id="@+id/main_settings"
+            android:textSize="20sp"
+            android:button="@null"
+            android:gravity="center"
+            android:background="@drawable/main_bottom_bg_selector"
+            android:textColor="@color/main_bottom_textcolor_selector"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"/>
+    </RadioGroup>
 
-    </com.google.android.material.appbar.AppBarLayout>
-
-    <include layout="@layout/content_main" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_marginEnd="@dimen/fab_margin"
-        android:layout_marginBottom="16dp"
-        app:srcCompat="@android:drawable/ic_dialog_email" />
-
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+</LinearLayout>

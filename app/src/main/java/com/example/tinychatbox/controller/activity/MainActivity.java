@@ -1,44 +1,72 @@
 package com.example.tinychatbox.controller.activity;
 
 import android.os.Bundle;
-
-import com.example.tinychatbox.R;
-import com.google.android.material.snackbar.Snackbar;
+import android.widget.RadioGroup;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
 
-import android.view.View;
+import com.example.tinychatbox.R;
+import com.example.tinychatbox.controller.fragment.ChatFragment;
+import com.example.tinychatbox.controller.fragment.ContactListFragment;
+import com.example.tinychatbox.controller.fragment.SettingFragment;
 
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
+public class MainActivity extends FragmentActivity {
 
-import com.example.tinychatbox.databinding.ActivityMainBinding;
 
-public class MainActivity extends AppCompatActivity {
-
-    private AppBarConfiguration appBarConfiguration;
-    private ActivityMainBinding binding;
+    private RadioGroup main_group;
+    private ChatFragment chatFragment;
+    private ContactListFragment contactListFragment;
+    private SettingFragment settingFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        binding = ActivityMainBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
+        setContentView(R.layout.activity_main);
 
-        setSupportActionBar(binding.toolbar);
+        initView();
+        initData();
+        initListener();
+    }
 
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
-        appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).build();
-        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
-
-        binding.fab.setOnClickListener(new View.OnClickListener() {
+    private void initListener() {
+        main_group.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG).setAnchorView(R.id.fab).setAction("Action", null).show();
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                //切换列表
+                Fragment fragment=null;
+                switch (checkedId){
+                    case R.id.main_chat:
+                        fragment=chatFragment;
+                        break;
+                    case R.id.main_contactor:
+                        fragment=contactListFragment;
+                        break;
+                    case R.id.main_settings:
+                        fragment=settingFragment;
+                        break;
+                }
+                switchFragment(fragment);
             }
         });
+        main_group.check(R.id.main_chat);
+    }
+
+    private void switchFragment(Fragment fragment) {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.beginTransaction().replace(R.id.main_group,fragment).commit();
+    }
+
+    private void initData() {
+        chatFragment = new ChatFragment();
+        contactListFragment = new ContactListFragment();
+        settingFragment = new SettingFragment();
+    }
+
+    private void initView() {
+        main_group = findViewById(R.id.main_group);
     }
 }
