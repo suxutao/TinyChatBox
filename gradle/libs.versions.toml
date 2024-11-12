@@ -8,8 +8,9 @@ material = "1.10.0"
 constraintlayout = "2.1.4"
 navigationFragment = "2.6.0"
 navigationUi = "2.6.0"
-hyphenateChat = "3.8.4"
+hyphenateChat = "4.10.2"
 activity = "1.8.0"
+supportV4 = "30.4.1"
 
 [libraries]
 junit = { group = "junit", name = "junit", version.ref = "junit" }
@@ -22,6 +23,7 @@ navigation-fragment = { group = "androidx.navigation", name = "navigation-fragme
 navigation-ui = { group = "androidx.navigation", name = "navigation-ui", version.ref = "navigationUi" }
 hyphenate-chat = { group = "io.hyphenate", name = "hyphenate-chat", version.ref = "hyphenateChat" }
 activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
+support-v4 = { module = "com.android.support:support-v4", version.ref = "supportV4" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

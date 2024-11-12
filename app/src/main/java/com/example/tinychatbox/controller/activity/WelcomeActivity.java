@@ -10,6 +10,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.tinychatbox.R;
+import com.example.tinychatbox.model.Model;
+import com.example.tinychatbox.model.bean.UserInfo;
 import com.hyphenate.chat.EMClient;
 
 public class WelcomeActivity extends AppCompatActivity {
@@ -25,18 +27,24 @@ public class WelcomeActivity extends AppCompatActivity {
         }
 
         private void toMainOrLogin() {
-            new Thread(){
-                public void run(){
+            Model.getInstance().getGlobalThreadPool().execute(new Runnable() {
+                @Override
+                public void run() {
                     if (EMClient.getInstance().isLoggedInBefore()){
-
-                        Intent intent = new Intent(WelcomeActivity.this, MainActivity.class);
-                        startActivity(intent);
+                        UserInfo user = Model.getInstance().getUserAccountDao().getAccountByHXID(EMClient.getInstance().getCurrentUser());
+                        if (user == null){
+                            Intent intent = new Intent(WelcomeActivity.this, LoginActivity.class);
+                            startActivity(intent);
+                        }else{
+                            Intent intent = new Intent(WelcomeActivity.this, MainActivity.class);
+                            startActivity(intent);
+                        }
                     }else{
                         Intent intent = new Intent(WelcomeActivity.this, LoginActivity.class);
                         startActivity(intent);
                     }
                 }
-            }.start();
+            });
             finish();
         }
     };

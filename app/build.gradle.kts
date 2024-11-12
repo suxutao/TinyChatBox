@@ -42,6 +42,7 @@ dependencies {
     implementation(libs.navigation.fragment)
     implementation(libs.navigation.ui)
     implementation(project(":ease-im-kit"))
+    implementation("com.android.support:support-v4:30.4.1")
     implementation(libs.hyphenate.chat)
     implementation(libs.activity)
     testImplementation(libs.junit)
