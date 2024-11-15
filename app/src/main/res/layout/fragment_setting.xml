@@ -7,11 +7,12 @@
 
     <com.hyphenate.easeui.widget.EaseTitleBar
         app:titleBarTitle="设置"
+        android:id="@+id/main_titleBar"
         android:layout_width="match_parent"
         android:layout_height="@dimen/ease_common_title_bar_height"
+        app:titleBarDisplayHomeAsUpEnabled="false"
         app:titleBarLeftImage="@drawable/ease_mm_title_back">
     </com.hyphenate.easeui.widget.EaseTitleBar>
-
     <ScrollView
         android:layout_width="wrap_content"
         android:layout_height="0dp"

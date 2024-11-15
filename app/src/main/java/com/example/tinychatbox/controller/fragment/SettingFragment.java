@@ -29,7 +29,6 @@ public class SettingFragment extends Fragment {
         View view=View.inflate(getActivity(), R.layout.fragment_setting,null);
         initView(view);
         return view;
-
     }
 
     private void initView(View view) {
