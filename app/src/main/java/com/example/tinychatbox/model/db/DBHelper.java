@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import androidx.annotation.Nullable;
 
 import com.example.tinychatbox.model.dao.ContactTable;
+import com.example.tinychatbox.model.dao.InviteTable;
 
 public class DBHelper extends SQLiteOpenHelper {
 
@@ -19,7 +20,7 @@ public class DBHelper extends SQLiteOpenHelper {
         //创建联系人表
         db.execSQL(ContactTable.CREATE_TAB);
         //创建邀请信息表
-
+        db.execSQL(InviteTable.CREATE_TAB);
     }
 
     @Override
