@@ -16,5 +16,5 @@ public class ContactTable {
             +COL_NAME+" text,"
             +COL_NICK+" text,"
             +COL_PHOTO+" text,"
-            +COL_IS_CONTACT+" integer;";
+            +COL_IS_CONTACT+" integer);";
 }

@@ -4,7 +4,6 @@ import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.renderscript.Int2;
 
 import com.example.tinychatbox.model.bean.GroupInfo;
 import com.example.tinychatbox.model.bean.InvationInfo;

@@ -69,7 +69,7 @@ public class LoginActivity extends AppCompatActivity {
                 EMClient.getInstance().login(loginName, loginPwd, new EMCallBack() {
                     @Override
                     public void onSuccess() {
-                        Model.getInstance().loginSuccess();
+                        Model.getInstance().loginSuccess(new UserInfo(loginName));
                         //保存数据到本地数据库
                         Model.getInstance().getUserAccountDao().addAccount(new UserInfo(loginName));
 

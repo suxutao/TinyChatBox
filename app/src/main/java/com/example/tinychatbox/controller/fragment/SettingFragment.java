@@ -54,6 +54,9 @@ public class SettingFragment extends Fragment {
                         EMClient.getInstance().logout(false, new EMCallBack() {
                             @Override
                             public void onSuccess() {
+                                //关闭数据库
+                                Model.getInstance().getDbManager().close();
+
                                 getActivity().runOnUiThread(new Runnable() {
                                     @Override
                                     public void run() {
