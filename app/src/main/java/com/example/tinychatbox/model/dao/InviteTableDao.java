@@ -63,12 +63,16 @@ public class InviteTableDao {
                 userInfo.setHxid(cursor.getString(cursor.getColumnIndex(InviteTable.COL_USER_HXID)));
                 userInfo.setName(cursor.getString(cursor.getColumnIndex(InviteTable.COL_USER_NAME)));
                 userInfo.setNick(cursor.getString(cursor.getColumnIndex(InviteTable.COL_USER_NAME)));
+
+                invationInfo.setUser(userInfo);
             }else{
                 GroupInfo groupInfo = new GroupInfo();
 
                 groupInfo.setGroupId(cursor.getString(cursor.getColumnIndex(InviteTable.COL_GROUP_HXID)));
                 groupInfo.setGroupName(cursor.getString(cursor.getColumnIndex(InviteTable.COL_GROUP_NAME)));
                 groupInfo.setInvatePerson(cursor.getString(cursor.getColumnIndex(InviteTable.COL_USER_HXID)));
+
+                invationInfo.setGroup(groupInfo);
             }
             invationInfos.add(invationInfo);
         }
