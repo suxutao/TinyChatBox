@@ -2,15 +2,21 @@ package com.example.tinychatbox.controller.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+
 import androidx.core.content.ContextCompat;
 
+import com.example.tinychatbox.R;
 import com.example.tinychatbox.controller.activity.ChatActivity;
 import com.hyphenate.chat.EMConversation;
 import com.hyphenate.easeui.constants.EaseConstant;
 import com.hyphenate.easeui.modules.conversation.EaseConversationListFragment;
 import com.hyphenate.easeui.modules.conversation.model.EaseConversationInfo;
 import com.hyphenate.easeui.utils.EaseCommonUtils;
+import com.hyphenate.easeui.widget.EaseTitleBar;
 
 import static com.hyphenate.easeui.widget.EaseImageView.ShapeType.RECTANGLE;
 //会话列表页面
@@ -20,6 +26,10 @@ public class ChatFragment extends EaseConversationListFragment {
     public void initView(Bundle savedInstanceState) {
         super.initView(savedInstanceState);
 
+        View searchView = LayoutInflater.from(mContext).inflate(R.layout.titlebar_main,null);
+        llRoot.addView(searchView,0);
+        EaseTitleBar titleBar = findViewById(R.id.main_titleBar);
+        titleBar.setTitle("聊天");
 
         //设置默认头像
         conversationListLayout.setAvatarDefaultSrc(ContextCompat.getDrawable(mContext, com.hyphenate.easeui.R.drawable.em_chat_voice_call_normal));

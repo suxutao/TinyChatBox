@@ -114,10 +114,6 @@ public class ContactListFragment extends EaseContactListFragment implements View
 
     }
 
-    private void addHeader() {
-        contactLayout.getContactList().addCustomItem(R.id.ll_invite, com.hyphenate.easeui.R.drawable.ease_group_icon, "好友邀请");
-    }
-
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
