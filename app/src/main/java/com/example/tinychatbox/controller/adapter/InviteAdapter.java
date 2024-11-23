@@ -23,6 +23,7 @@ public class InviteAdapter extends BaseAdapter {
 
     public void refresh(List<InvationInfo>invationInfos){
         if (invationInfos != null) {
+            mInvitationInfos.clear();
             mInvitationInfos.addAll(invationInfos);
             notifyDataSetChanged();
         }

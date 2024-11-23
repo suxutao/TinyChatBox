@@ -28,6 +28,9 @@
         android:theme="@style/Theme.TinyChatBox"
         tools:targetApi="31">
         <activity
+            android:name=".controller.activity.ChatActivity"
+            android:exported="false" />
+        <activity
             android:name=".controller.activity.InviteActivity"
             android:exported="false" />
         <activity
@@ -47,7 +50,7 @@
         </activity> <!-- 设置环信应用的AppKey -->
         <meta-data
             android:name="EASEMOB_APPKEY"
-            android:value="1120241110208800#tinychatbox" /> <!-- 声明SDK所需的service SDK核心功能 -->
+            android:value="1120241110208800#ttt" /> <!-- 声明SDK所需的service SDK核心功能 -->
         <service
             android:name="com.hyphenate.chat.EMChatService"
             android:exported="true" />
