@@ -1,6 +1,6 @@
 # TinyChatBox 迷你聊天软件
 
-
+![](app/src/main/res/drawable-hdpi/logo.png)
 **产品名称**：TinyChatBox
 
 **产品定位**：
